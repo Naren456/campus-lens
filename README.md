@@ -1,56 +1,94 @@
-# Welcome to your Expo app 👋
+# 📌 Campus Lens
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+**Your personal deadline assistant — for a campus life that's scattered across a dozen apps.**
 
-## Get started
+Hackathon announcements land in WhatsApp groups. Project deadlines get buried in Gmail. Club event details show up as a forwarded link nobody reads properly. Campus Lens pulls all of that into one place — just forward a message or paste a link, and it reads the content for you and turns it into a deadline you won't miss.
 
-1. Install dependencies
+---
+
+## 😩 The Problem
+
+If you're a student juggling hackathons, assignments, and project submissions, your deadlines don't live in one app — they're scattered across:
+
+- WhatsApp group messages and forwards
+- Gmail (event mailers, submission portals, faculty emails)
+- Random links shared in Discord/Telegram
+
+Nothing reminds you until it's almost too late.
+
+## 💡 The Idea
+
+Campus Lens is a lightweight mobile assistant that does one thing really well: **extract deadlines from messy, unstructured content and remind you before they slip by.**
+
+1. **Share** — Forward a WhatsApp message, paste a Gmail snippet, or drop a link into the app.
+2. **Analyze** — Campus Lens reads the content and extracts what matters: event/project name, deadline, and key details.
+3. **Remind** — It's added to your dashboard with a timely reminder, so you never have to dig through chats again.
+
+---
+
+## 📱 Screenshots
+
+<p align="center">
+  <img src="./assets/screenshots/s1.png" width="280" />
+  &nbsp;&nbsp;
+  <img src="./assets/screenshots/s2.png" width="280" />
+</p>
+
+---
+
+## ✨ Features
+
+- 📩 **Share-to-extract** — send any text, forwarded message, or link straight into the app
+- 🧠 **Smart extraction** — automatically pulls out deadlines, titles, and context from unstructured text
+- ⏰ **Deadline reminders** — get notified before a hackathon or project due date sneaks up on you
+- 📋 **One dashboard** — every deadline from every scattered source, in a single view
+
+> More features (like direct WhatsApp/Gmail integrations) are on the roadmap — see below.
+
+---
+
+## 🛠️ Tech Stack
+
+- [Expo](https://expo.dev) + React Native
+- TypeScript
+- [NativeWind](https://www.nativewind.dev/) (Tailwind CSS for React Native)
+- Expo Router (file-based routing)
+
+---
+
+## 🚀 Getting Started
+
+1. **Clone the repo**
+
+   ```bash
+   git clone https://github.com/Naren456/campus-lens.git
+   cd campus-lens
+   ```
+
+2. **Install dependencies**
 
    ```bash
    npm install
    ```
 
-2. Start the app
+3. **Start the app**
 
    ```bash
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+   From the output, open the app in a:
+   - [Development build](https://docs.expo.dev/develop/development-builds/introduction/)
+   - [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
+   - [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
+   - [Expo Go](https://expo.dev/go) sandbox
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 🤝 Contributing
 
-## Get a fresh project
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/Naren456/campus-lens/issues).
 
-When you're ready, run:
+## 📄 License
 
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-### Other setup steps
-
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+This project is licensed under the [MIT License](./LICENSE).
