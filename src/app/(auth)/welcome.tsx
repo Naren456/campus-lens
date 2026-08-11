@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, ImageBackground } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { Colors } from '../../constants/Colors';
@@ -7,7 +7,13 @@ export default function WelcomeScreen() {
   const router = useRouter();
 
   return (
-    <SafeAreaView style={styles.container}>
+    <ImageBackground
+      source={require('../../../assets/auth/welcome/welcome_bg.png')}
+      style={[styles.background, { backgroundColor: 'rgba(59, 130, 246, 0.2)' }]}
+      imageStyle={{ opacity: 0.8 }}
+      resizeMode="cover"
+    >
+      <SafeAreaView style={styles.container}>
       <View style={styles.content}>
         <Text style={styles.title}>Welcome to CampusLens</Text>
         <Text style={styles.subtitle}>Let's get started on your campus journey.</Text>
@@ -28,20 +34,25 @@ export default function WelcomeScreen() {
           </TouchableOpacity>
         </View>
       </View>
-    </SafeAreaView>
+      </SafeAreaView>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
+  background: {
+    flex: 1,
+    width: '100%',
+  },
   container: {
     flex: 1,
-    backgroundColor: Colors.background.white,
   },
   content: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
     alignItems: 'center',
     paddingHorizontal: 24,
+    paddingBottom: 80,
   },
   title: {
     fontSize: 32,

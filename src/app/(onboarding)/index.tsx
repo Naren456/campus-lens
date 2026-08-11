@@ -1,13 +1,13 @@
-import { useState, useEffect } from 'react';
 import { useRouter } from 'expo-router';
+import { useEffect, useState } from 'react';
 import { Dimensions, ImageBackground, StyleSheet, Text, View } from 'react-native';
+import Animated, { Easing, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import Animated, { useSharedValue, useAnimatedStyle, withTiming, Easing } from 'react-native-reanimated';
 
-import { Colors } from '../../constants/Colors';
 import OnboardingBottomCard from '../../components/onboarding/OnboardingBottomCard';
 import OnboardingHeader from '../../components/onboarding/OnboardingHeader';
 import OnboardingHero from '../../components/onboarding/OnboardingHero';
+import { Colors } from '../../constants/Colors';
 
 const { width } = Dimensions.get('window');
 
@@ -105,7 +105,7 @@ const ONBOARDING_STEPS = [
       <>
         <Text style={styles.hugeTextDark}>Never miss</Text>
         <Text style={styles.hugeTextPurple}>what matters</Text>
-        
+
         <Text style={styles.subtitleLarge}>
           Deadlines, exams, events, and{'\n'}
           notices — all in <Text style={{ color: Colors.primary }}>one place</Text>.
@@ -116,22 +116,32 @@ const ONBOARDING_STEPS = [
   },
   {
     id: 'step3',
-    background: require('../../../assets/onboarding/step1_bg.png'),
-    hero: require('../../../assets/onboarding/step1_hero.png'),
-    heroStyle: undefined,
-    heroContainerStyle: undefined,
+    background: require('../../../assets/onboarding/step_3_bg.png'),
+    hero: require('../../../assets/onboarding/step_3_hero.png'),
+    heroStyle: { width: width * 1.25, height: width * 1.55 },
+    heroContainerStyle: {
+      marginTop: 20,
+      marginLeft: -10,
+      shadowColor: Colors.primary,
+      shadowOffset: { width: 0, height: 20 },
+      shadowOpacity: 0.3,
+      shadowRadius: 30,
+      elevation: 15,
+    },
     typography: (
       <>
-        <Text style={styles.hugeTextDark}>Get connected.</Text>
-        <Text style={styles.hugeTextPurple}>Get involved.</Text>
-        
+        <Text style={styles.hugeTextDark}>All your campus,</Text>
+        <Text style={styles.hugeTextDark}>
+          in <Text style={{ color: Colors.primary }}>one place</Text>
+        </Text>
+
         <Text style={styles.subtitleLarge}>
-          Connect with peers, join clubs, and{'\n'}
-          make the most out of <Text style={{ color: Colors.primary }}>campus life</Text>.
+          Photos, notes, notices, deadlines{'\n'}
+          and more — <Text style={{ color: Colors.primary }}>organized</Text> for you.
         </Text>
       </>
     ),
-    bottomText: "Start your campus journey\nwith us today!",
+    bottomText: "Contribute, discover and stay connected with your campus.",
   }
 ];
 
@@ -140,7 +150,7 @@ const TOTAL_STEPS = ONBOARDING_STEPS.length;
 export default function OnboardingScreen() {
   const router = useRouter();
   const [currentStep, setCurrentStep] = useState(0);
-  
+
   const translateX = useSharedValue(0);
 
   useEffect(() => {
@@ -189,12 +199,12 @@ export default function OnboardingScreen() {
               >
                 <View style={styles.content}>
                   {/* Keep header in each slide so it aligns correctly with the content padding */}
-                  <OnboardingHeader 
-                    onSkipPress={handleSkip} 
+                  <OnboardingHeader
+                    onSkipPress={handleSkip}
                     onBackPress={handleBack}
-                    showBack={index > 0} 
+                    showBack={index > 0}
                   />
-                  
+
                   <View style={styles.animatedContainer}>
                     <OnboardingHero
                       imageSource={stepData.hero}
@@ -210,7 +220,7 @@ export default function OnboardingScreen() {
         </Animated.View>
       </View>
 
-      <OnboardingBottomCard 
+      <OnboardingBottomCard
         text={ONBOARDING_STEPS[currentStep].bottomText}
         activeDotIndex={currentStep}
         onNextPress={handleNext}
